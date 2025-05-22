@@ -5,44 +5,44 @@
 
 @layer base {
   :root {
-    --background: 220 70% 2%;
+    --background: 230 50% 3%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 230 40% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 230 40% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 252 67% 65%;
+    --primary: 265 70% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 18%;
+    --secondary: 230 30% 15%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 18%;
+    --muted: 230 30% 15%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 18%;
+    --accent: 230 30% 15%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 224 76% 48%;
+    --border: 230 30% 15%;
+    --input: 230 30% 15%;
+    --ring: 265 70% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 222 47% 11%;
+    --sidebar-background: 230 40% 8%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary: 265 70% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 33% 18%;
+    --sidebar-accent: 230 30% 15%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 18%;
-    --sidebar-ring: 224 76% 48%;
+    --sidebar-border: 230 30% 15%;
+    --sidebar-ring: 265 70% 50%;
   }
 
   .light {
@@ -98,6 +98,7 @@
     @apply bg-cosmic-dark text-foreground;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%236e00ff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
 
   /* Custom scrollbar */
@@ -106,16 +107,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #050816;
+    background: #0a0118;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #915eff;
+    background: #6e00ff;
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #00cea8;
+    background: #8c13ff;
   }
 
   /* Hide default cursor when using custom cursor */
@@ -130,7 +131,7 @@
   }
   
   .cosmic-glow {
-    text-shadow: 0 0 10px rgba(145, 94, 255, 0.7), 0 0 20px rgba(145, 94, 255, 0.5);
+    text-shadow: 0 0 10px rgba(110, 0, 255, 0.7), 0 0 20px rgba(110, 0, 255, 0.5);
   }
   
   .cosmic-btn {
@@ -155,11 +156,13 @@
   }
 
   .cosmic-heading {
-    @apply text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px];
+    @apply text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]
+    font-gothic tracking-wider;
   }
 
   .cosmic-subheading {
-    @apply text-cosmic-light font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px];
+    @apply text-cosmic-light font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] 
+    lg:leading-[40px] font-gothic;
   }
 
   .cosmic-text {
@@ -167,7 +170,26 @@
   }
 
   .glass-nav {
-    @apply backdrop-blur-md bg-cosmic-dark/60 border-b border-cosmic-purple/20;
+    @apply backdrop-blur-md bg-cosmic-dark/70 border-b border-cosmic-purple/30;
+  }
+
+  /* Gothic elements */
+  .gothic-border {
+    @apply border-2 border-cosmic-purple/50 p-5 rounded-md relative;
+    background: linear-gradient(to bottom, rgba(10, 1, 24, 0.7), rgba(10, 1, 24, 0.9));
+    box-shadow: 0 0 15px rgba(110, 0, 255, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .gothic-card {
+    @apply p-6 rounded-md relative overflow-hidden;
+    background: linear-gradient(to bottom, rgba(10, 1, 24, 0.7), rgba(20, 5, 40, 0.9));
+    box-shadow: 0 0 25px rgba(110, 0, 255, 0.2);
+    border: 1px solid rgba(110, 0, 255, 0.2);
+  }
+  
+  .gothic-divider {
+    @apply w-full h-[1px] my-4 relative overflow-hidden;
+    background: linear-gradient(to right, transparent, rgba(110, 0, 255, 0.5), transparent);
   }
 
   /* Scroll reveal animation classes */
@@ -197,16 +219,16 @@
 }
 
 .black-gradient {
-  background: #000000; /* fallback for old browsers */
+  background: #0a0118; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #434343,
-    #000000
+    #1a0942,
+    #0a0118
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #434343,
-    #000000
+    #1a0942,
+    #0a0118
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -230,6 +252,20 @@
   animation-iteration-count: infinite;
 }
 
+/* Gothic star effect */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow: 0 0 5px rgba(110, 0, 255, 0.5), 0 0 10px rgba(110, 0, 255, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    box-shadow: 0 0 2px rgba(110, 0, 255, 0.2);
+    transform: scale(0.8);
+  }
+}
+
 /* Define sections with fade-in animations */
 .section-fade {
   opacity: 0;
@@ -245,13 +281,43 @@
 /* Enhanced scroll animations */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 8px 2px rgba(145, 94, 255, 0.5);
+    box-shadow: 0 0 8px 2px rgba(110, 0, 255, 0.5);
   }
   50% {
-    box-shadow: 0 0 16px 4px rgba(145, 94, 255, 0.8);
+    box-shadow: 0 0 16px 4px rgba(110, 0, 255, 0.8);
   }
 }
 
 .pulse-glow {
   animation: pulseGlow 2s infinite;
+}
+
+/* Gothic fog */
+.gothic-fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%236E00FF' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%236E00FF' fill-opacity='0.05'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: -2;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Gothic portal animation */
+@keyframes portalPulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(110, 0, 255, 0.4), 
+                inset 0 0 30px rgba(110, 0, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(110, 0, 255, 0.6), 
+                inset 0 0 50px rgba(110, 0, 255, 0.6);
+  }
+}
+
+.portal-effect {
+  animation: portalPulse 4s infinite;
+  border-radius: 50%;
 }

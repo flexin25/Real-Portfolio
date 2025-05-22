@@ -6,7 +6,7 @@ import StarBackground from './StarBackground';
 
 const Hero = () => {
   const [text, setText] = useState('');
-  const [fullText] = useState('I build cutting-edge web applications.');
+  const [fullText] = useState('I forge mystical digital experiences.');
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Hero = () => {
       setTimeout(() => {
         setText(text + fullText[index]);
         setIndex(index + 1);
-      }, 50);
+      }, 70); // Slower typing for dramatic effect
     }
   }, [index, text, fullText]);
 
@@ -24,8 +24,8 @@ const Hero = () => {
       
       <div className="absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-col items-start gap-5 px-6 sm:px-16">
         <div>
-          <h1 className="cosmic-heading">
-            Hello, I'm <span className="text-cosmic-purple cosmic-glow">Your Name</span>
+          <h1 className="cosmic-heading tracking-wider">
+            Greetings, I am <span className="text-cosmic-purple cosmic-glow">Your Name</span>
           </h1>
           
           <div className="h-8 sm:h-12 overflow-hidden">
@@ -34,20 +34,21 @@ const Hero = () => {
         </div>
 
         <p className="cosmic-text max-w-3xl mt-4">
-          Passionate developer with a focus on creating elegant, efficient, and user-friendly solutions.
-          I specialize in building cutting-edge applications with modern web technologies.
+          Digital architect dwelling in the shadows of code and design.
+          I specialize in crafting otherworldly experiences with modern technologies
+          that bridge realms between imagination and reality.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <a href="#projects">
-            <Button className="cosmic-btn group">
-              View My Projects
+            <Button className="cosmic-btn group portal-effect">
+              View My Creations
               <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </a>
           <a href="#contact">
-            <Button variant="outline" className="bg-transparent border border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple/10 py-3 px-8 rounded-xl">
-              Get In Touch
+            <Button variant="outline" className="bg-transparent border border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple/10 py-3 px-8 rounded-xl gothic-border">
+              Summon Me
             </Button>
           </a>
         </div>

@@ -22,6 +22,9 @@ export default {
 			screens: {
 				'xs': '475px',  // Adding xs breakpoint
 			},
+			fontFamily: {
+				'gothic': ['Trajan Pro', 'Cinzel', 'serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -67,11 +70,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				cosmic: {
-					'dark': '#050816',
-					'light': '#aaa6c3',
-					'blue': '#1e293b',
-					'purple': '#915eff',
-					'neon': '#00cea8'
+					'dark': '#0a0118',
+					'light': '#c8c5df',
+					'blue': '#150538',
+					'purple': '#6e00ff',
+					'neon': '#b700ff'
 				}
 			},
 			borderRadius: {
@@ -115,6 +118,11 @@ export default {
 				'transition-fade-out': {
 					'0%': { opacity: '1' },
 					'100%': { opacity: '0' }
+				},
+				'mystic-float': {
+					'0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+					'25%': { transform: 'translateY(-5px) rotate(1deg)' },
+					'75%': { transform: 'translateY(5px) rotate(-1deg)' }
 				}
 			},
 			animation: {
@@ -125,11 +133,12 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'spin-slow': 'spin-slow 8s linear infinite',
 				'twinkle': 'twinkle 3s ease-in-out infinite',
-				'transition-fade': 'transition-fade-in 0.6s ease-out forwards, transition-fade-out 0.6s ease-in 0.8s forwards'
+				'transition-fade': 'transition-fade-in 0.6s ease-out forwards, transition-fade-out 0.6s ease-in 0.8s forwards',
+				'mystic-float': 'mystic-float 8s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/src/assets/herobg.png')",
-				'gradient-cosmic': 'linear-gradient(180deg, rgba(5, 8, 22, 0) 0%, #050816 95%)'
+				'gradient-cosmic': 'linear-gradient(180deg, rgba(10, 1, 24, 0) 0%, #0a0118 95%)'
 			},
 			cursor: {
 				'none': 'none'
