@@ -1,5 +1,3 @@
-
-// Helper for animate on scroll functionality
 export const animateOnScroll = () => {
   const sections = document.querySelectorAll('.section-fade');
   
