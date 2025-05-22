@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, Mail, Phone, MapPin } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -80,19 +80,19 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6 text-cosmic-purple" />,
+      icon: <Mail className="w-6 h-6 text-primary" />,
       title: "Email",
       content: "your.email@example.com",
       href: "mailto:your.email@example.com",
     },
     {
-      icon: <Phone className="w-6 h-6 text-cosmic-purple" />,
+      icon: <Phone className="w-6 h-6 text-primary" />,
       title: "Phone",
       content: "+1 (123) 456-7890",
       href: "tel:+11234567890",
     },
     {
-      icon: <MapPin className="w-6 h-6 text-cosmic-purple" />,
+      icon: <MapPin className="w-6 h-6 text-primary" />,
       title: "Location",
       content: "San Francisco, CA",
       href: "https://maps.google.com/?q=San+Francisco,+CA",
@@ -114,7 +114,7 @@ const Contact = () => {
             <form ref={formRef} onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-6">
                 <div>
-                  <label htmlFor="name" className="block mb-2 text-cosmic-light">Your Name</label>
+                  <label htmlFor="name" className="block mb-2 text-muted-foreground">Your Name</label>
                   <Input
                     id="name"
                     name="name"
@@ -122,11 +122,11 @@ const Contact = () => {
                     placeholder="What's your name?"
                     value={formData.name}
                     onChange={handleChange}
-                    className="bg-cosmic-blue/40 border-cosmic-purple/30 text-white"
+                    className="bg-secondary/40 border-primary/30 text-white"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block mb-2 text-cosmic-light">Your Email</label>
+                  <label htmlFor="email" className="block mb-2 text-muted-foreground">Your Email</label>
                   <Input
                     id="email"
                     name="email"
@@ -134,11 +134,11 @@ const Contact = () => {
                     placeholder="What's your email address?"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-cosmic-blue/40 border-cosmic-purple/30 text-white"
+                    className="bg-secondary/40 border-primary/30 text-white"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block mb-2 text-cosmic-light">Your Message</label>
+                  <label htmlFor="message" className="block mb-2 text-muted-foreground">Your Message</label>
                   <Textarea
                     id="message"
                     name="message"
@@ -146,7 +146,7 @@ const Contact = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="bg-cosmic-blue/40 border-cosmic-purple/30 text-white resize-none"
+                    className="bg-secondary/40 border-primary/30 text-white resize-none"
                   />
                 </div>
                 <div>
@@ -175,19 +175,19 @@ const Contact = () => {
                 href={info.href}
                 target={info.title !== "Phone" ? "_blank" : undefined}
                 rel={info.title !== "Phone" ? "noopener noreferrer" : undefined}
-                className="cosmic-card flex items-start space-x-4 hover:bg-cosmic-blue/50 transition-colors"
+                className="cosmic-card flex items-start space-x-4 hover:bg-secondary/50 transition-colors"
               >
-                <div className="bg-cosmic-blue/60 p-3 rounded-full">{info.icon}</div>
+                <div className="bg-secondary/60 p-3 rounded-full">{info.icon}</div>
                 <div>
                   <h3 className="text-lg font-medium text-white">{info.title}</h3>
-                  <p className="text-cosmic-light">{info.content}</p>
+                  <p className="text-muted-foreground">{info.content}</p>
                 </div>
               </a>
             ))}
             
             <div className="cosmic-card">
               <h3 className="text-xl font-bold text-white mb-4">Connect With Me</h3>
-              <p className="text-cosmic-light mb-4">
+              <p className="text-muted-foreground mb-4">
                 Follow me on social media to stay updated with my latest projects and tech insights.
               </p>
               <div className="flex space-x-4">
@@ -210,5 +210,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-import { Github, Linkedin } from 'lucide-react';
