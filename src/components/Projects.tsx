@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Github, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -186,7 +185,7 @@ const Projects = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         aria-label="View source code"
-                        className="cosmic-btn w-10 h-10 rounded-full flex items-center justify-center p-0"
+                        className="cosmic-btn group w-10 h-10 rounded-full flex items-center justify-center p-0"
                       >
                         <Github className="w-4 h-4" />
                       </a>
@@ -195,7 +194,7 @@ const Projects = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         aria-label="View live demo"
-                        className="cosmic-btn w-10 h-10 rounded-full flex items-center justify-center p-0"
+                        className="cosmic-btn group w-10 h-10 rounded-full flex items-center justify-center p-0"
                       >
                         <ExternalLink className="w-4 h-4" />
                       </a>
@@ -236,7 +235,7 @@ const Projects = () => {
         
         <div className="flex justify-center mt-12">
           <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-            <Button className="cosmic-btn">
+            <Button className="cosmic-btn group">
               <Github className="w-5 h-5 mr-2" />
               View More Projects
             </Button>

@@ -40,7 +40,7 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <a href="#projects">
-            <Button className="cosmic-btn">
+            <Button className="cosmic-btn group">
               View My Projects
               <ArrowRight className="w-4 h-4 ml-1" />
             </Button>

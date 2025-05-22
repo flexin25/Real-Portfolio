@@ -137,9 +137,10 @@
     @apply py-3 px-8 bg-cosmic-purple/80 text-white font-bold 
     rounded-xl outline-none w-fit flex items-center gap-2
     hover:bg-cosmic-purple hover:shadow-cosmic-purple/50 hover:shadow-lg
-    transition-all duration-300 relative overflow-hidden group;
+    transition-all duration-300 relative overflow-hidden;
   }
 
+  /* Separate the group-related styles */
   .cosmic-btn::after {
     @apply content-[''] absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] transition-all duration-700 ease-out;
   }
