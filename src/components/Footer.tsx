@@ -1,5 +1,5 @@
-
-import { ChevronRight, Github, Heart, Linkedin, Mail } from 'lucide-react';
+import { ChevronRight, Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { FaGithub, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,19 +14,25 @@ const Footer = () => {
   return (
     <footer className="relative pt-32 pb-10 overflow-hidden">
       {/* Star particles for footer */}
-      <div className="absolute inset-0 z-0">
-        {Array.from({ length: 50 }).map((_, index) => (
-          <div
-            key={index}
-            className="absolute bg-white w-[1px] h-[1px] rounded-full animate-twinkle"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random(),
-            }}
-          />
-        ))}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {Array.from({ length: 50 }).map((_, index) => {
+          const top = Math.random() * 100;
+          const left = Math.random() * 100;
+          const animationDelay = Math.random() * 5;
+          const opacity = Math.random();
+          return (
+            <div
+              key={index}
+              className="star-particle absolute bg-white w-[1px] h-[1px] rounded-full animate-twinkle"
+              style={{
+                '--star-top': `${top}%`,
+                '--star-left': `${left}%`,
+                '--star-animation-delay': `${animationDelay}s`,
+                '--star-opacity': opacity,
+              } as React.CSSProperties}
+            />
+          );
+        })}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-16 relative z-10">
@@ -56,41 +62,41 @@ const Footer = () => {
                 window.scrollTo(0, 0);
               }}
             >
-              <p className="text-white text-2xl font-bold cursor-pointer flex">
-                <span className="text-cosmic-purple cosmic-glow">{"<"}</span>
-                Portfolio
-                <span className="text-cosmic-purple cosmic-glow">{" />"}</span>
-              </p>
+              <span className="text-cosmic-purple cosmic-glow text-2xl">
+                {'<>'}
+              </span>
             </a>
             <p className="text-cosmic-light mb-6">
               Creating innovative web solutions with a focus on performance, aesthetics, and user experience.
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/abhishekbardhan"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
                 className="w-10 h-10 rounded-full bg-cosmic-blue/40 flex items-center justify-center border border-cosmic-purple/20 hover:bg-cosmic-blue/80 transition-all duration-300"
               >
-                <Github className="w-5 h-5 text-white" />
+                <FaGithub size={20} color="white" />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://instagram.com/abhishekbardhan"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn Profile"
+                aria-label="Instagram Profile"
                 className="w-10 h-10 rounded-full bg-cosmic-blue/40 flex items-center justify-center border border-cosmic-purple/20 hover:bg-cosmic-blue/80 transition-all duration-300"
               >
-                <Linkedin className="w-5 h-5 text-white" />
+                <FaInstagram size={20} color="white" />
               </a>
               <a
-                href="mailto:your.email@example.com"
-                aria-label="Email Contact"
+                href="https://twitter.com/abhishekbardhan"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter Profile"
                 className="w-10 h-10 rounded-full bg-cosmic-blue/40 flex items-center justify-center border border-cosmic-purple/20 hover:bg-cosmic-blue/80 transition-all duration-300"
               >
-                <Mail className="w-5 h-5 text-white" />
-              </a>
+                <FaTwitter size={20} color="white" />
+c              </a>
             </div>
           </div>
 
@@ -148,43 +154,34 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white mb-6">Contact Info</h3>
             <ul className="space-y-4">
               <li>
-                <p className="text-cosmic-light">
-                  <Mail className="w-4 h-4 mr-2 inline-block text-cosmic-purple" />
-                  your.email@example.com
+                <p className="text-cosmic-light flex items-center">
+                  <Mail className="w-4 h-4 mr-2 text-cosmic-purple" />
+                  bardhanabhishek50@gmail.com
                 </p>
               </li>
               <li>
-                <p className="text-cosmic-light">
-                  <Phone className="w-4 h-4 mr-2 inline-block text-cosmic-purple" />
-                  +1 (123) 456-7890
+                <p className="text-cosmic-light flex items-center">
+                  <Phone className="w-4 h-4 mr-2 text-cosmic-purple" />
+                  +91 79083-64981
                 </p>
               </li>
               <li>
-                <p className="text-cosmic-light">
-                  <MapPin className="w-4 h-4 mr-2 inline-block text-cosmic-purple" />
-                  San Francisco, CA
+                <p className="text-cosmic-light flex items-center">
+                  <MapPin className="w-4 h-4 mr-2 text-cosmic-purple" />
+                  West Bengal, Siliguri
                 </p>
               </li>
             </ul>
           </div>
         </div>
-
-        {/* Footer bottom */}
-        <div className="pt-8 border-t border-cosmic-purple/20 text-center">
-          <p className="text-cosmic-light">
-            © {currentYear} Your Name. All rights reserved.
-          </p>
-          <p className="flex items-center justify-center mt-2 text-cosmic-light text-sm">
-            Made with 
-            <Heart className="w-4 h-4 mx-1 text-cosmic-purple animate-pulse" /> 
-            and React
-          </p>
-        </div>
+        <p className="flex items-center justify-center mt-2 text-cosmic-light text-sm">
+          Made with
+          <Heart className="w-4 h-4 mx-1 text-cosmic-purple animate-pulse" />
+          and React &copy; {currentYear}
+        </p>
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
-import { Phone, MapPin } from 'lucide-react';

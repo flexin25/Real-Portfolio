@@ -12,6 +12,62 @@ interface Project {
   demo_link: string;
 }
 
+// Helper function to get color based on programming language
+const getLanguageColor = (language: string | null) => {
+  const colors: Record<string, string> = {
+    JavaScript: "text-yellow-300",
+    TypeScript: "text-blue-300",
+    Python: "text-green-300",
+    CSS: "text-blue-400",
+    HTML: "text-orange-300",
+    "N/A": "text-gray-300",
+  };
+  return colors[language || "N/A"] || "text-gray-300";
+};
+
+// Sample projects as fallback
+const sampleProjects: Project[] = [
+  {
+    id: 1,
+    name: "E-Commerce Platform",
+    description: "A modern e-commerce solution with React, Node.js, and MongoDB featuring user authentication, product catalog, and secure checkout.",
+    tags: [
+      { name: "React", color: "text-blue-300" },
+      { name: "Node.js", color: "text-green-300" },
+      { name: "MongoDB", color: "text-green-400" },
+    ],
+    image: "https://via.placeholder.com/500x300?text=E-Commerce+Project",
+    source_code_link: "https://github.com/yourusername/ecommerce-project",
+    demo_link: "https://github.com/yourusername/ecommerce-project",
+  },
+  {
+    id: 2,
+    name: "Task Management App",
+    description: "A productivity app for managing tasks with drag-and-drop functionality, user collaboration, and real-time updates.",
+    tags: [
+      { name: "React", color: "text-blue-300" },
+      { name: "Firebase", color: "text-yellow-300" },
+      { name: "Tailwind CSS", color: "text-blue-400" },
+    ],
+    image: "https://via.placeholder.com/500x300?text=Task+Manager",
+    source_code_link: "https://github.com/yourusername/task-manager",
+    demo_link: "https://github.com/yourusername/task-manager",
+  },
+  {
+    id: 3,
+    name: "Weather Dashboard",
+    description: "An interactive weather dashboard that provides current conditions, forecasts, and historical data for locations worldwide.",
+    tags: [
+      { name: "JavaScript", color: "text-yellow-300" },
+      { name: "WeatherAPI", color: "text-blue-300" },
+      { name: "CSS", color: "text-blue-400" },
+    ],
+    image: "https://via.placeholder.com/500x300?text=Weather+Dashboard",
+    source_code_link: "https://github.com/yourusername/weather-app",
+    demo_link: "https://github.com/yourusername/weather-app",
+  },
+];
+
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -24,15 +80,22 @@ const Projects = () => {
         // Replace with your actual GitHub username
         const username = "yourusername";
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-        
         if (!response.ok) {
           throw new Error("Failed to fetch GitHub repositories");
         }
-        
         const repos = await response.json();
-        
-        // Transform the data into our project format
-        const transformedProjects = repos.map((repo: any, index: number) => ({
+
+        interface Repo {
+          name: string;
+          description: string | null;
+          language: string | null;
+          stargazers_count: number;
+          forks_count: number;
+          html_url: string;
+          homepage: string | null;
+        }
+
+        const transformedProjects = repos.map((repo: Repo, index: number) => ({
           id: index + 1,
           name: repo.name,
           description: repo.description || "No description available",
@@ -54,21 +117,19 @@ const Projects = () => {
           source_code_link: repo.html_url,
           demo_link: repo.homepage || repo.html_url,
         }));
-        
+
         setProjects(transformedProjects);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching GitHub projects:", error);
         setError("Failed to load projects. Please try again later.");
-        setLoading(false);
-        
-        // Fallback to sample projects if GitHub API fails
         setProjects(sampleProjects);
+        setLoading(false);
       }
     };
-    
+
     fetchProjects();
-    
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -77,75 +138,18 @@ const Projects = () => {
       },
       { threshold: 0.2 }
     );
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+
+    const section = sectionRef.current;
+    if (section) {
+      observer.observe(section);
     }
-    
+
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (section) {
+        observer.unobserve(section);
       }
     };
   }, []);
-
-  // Helper function to get color based on programming language
-  const getLanguageColor = (language: string | null) => {
-    const colors: Record<string, string> = {
-      JavaScript: "text-yellow-300",
-      TypeScript: "text-blue-400",
-      Python: "text-green-300",
-      Java: "text-red-400",
-      HTML: "text-orange-400",
-      CSS: "text-blue-300",
-      Ruby: "text-red-500",
-    };
-    
-    return colors[language || ""] || "text-gray-300";
-  };
-
-  // Sample projects as fallback
-  const sampleProjects = [
-    {
-      id: 1,
-      name: "E-Commerce Platform",
-      description: "A modern e-commerce solution with React, Node.js, and MongoDB featuring user authentication, product catalog, and secure checkout.",
-      tags: [
-        { name: "React", color: "text-blue-300" },
-        { name: "Node.js", color: "text-green-300" },
-        { name: "MongoDB", color: "text-green-400" },
-      ],
-      image: "https://via.placeholder.com/500x300?text=E-Commerce+Project",
-      source_code_link: "https://github.com/yourusername/ecommerce-project",
-      demo_link: "https://github.com/yourusername/ecommerce-project",
-    },
-    {
-      id: 2,
-      name: "Task Management App",
-      description: "A productivity app for managing tasks with drag-and-drop functionality, user collaboration, and real-time updates.",
-      tags: [
-        { name: "React", color: "text-blue-300" },
-        { name: "Firebase", color: "text-yellow-300" },
-        { name: "Tailwind CSS", color: "text-blue-400" },
-      ],
-      image: "https://via.placeholder.com/500x300?text=Task+Manager",
-      source_code_link: "https://github.com/yourusername/task-manager",
-      demo_link: "https://github.com/yourusername/task-manager",
-    },
-    {
-      id: 3,
-      name: "Weather Dashboard",
-      description: "An interactive weather dashboard that provides current conditions, forecasts, and historical data for locations worldwide.",
-      tags: [
-        { name: "JavaScript", color: "text-yellow-300" },
-        { name: "WeatherAPI", color: "text-blue-300" },
-        { name: "CSS", color: "text-blue-400" },
-      ],
-      image: "https://via.placeholder.com/500x300?text=Weather+Dashboard",
-      source_code_link: "https://github.com/yourusername/weather-app",
-      demo_link: "https://github.com/yourusername/weather-app",
-    },
-  ];
 
   return (
     <section ref={sectionRef} id="projects" className="section-fade py-20">

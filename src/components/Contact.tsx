@@ -1,24 +1,24 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Github } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  
+
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -28,11 +28,11 @@ const Contact = () => {
       },
       { threshold: 0.2 }
     );
-    
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-    
+
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
@@ -49,7 +49,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Error",
@@ -58,9 +58,9 @@ const Contact = () => {
       });
       return;
     }
-    
+
     setLoading(true);
-    
+
     // Simulate sending an email
     setTimeout(() => {
       setLoading(false);
@@ -68,7 +68,7 @@ const Contact = () => {
         title: "Success",
         description: "Your message has been sent. I'll get back to you soon!",
       });
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -82,20 +82,20 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
       title: "Email",
-      content: "your.email@example.com",
-      href: "mailto:your.email@example.com",
+      content: "bardhanabhishek50@gmail.com",
+      href: "mailto:bardhanabhishek50@gmail.com",
     },
     {
       icon: <Phone className="w-6 h-6 text-primary" />,
       title: "Phone",
-      content: "+1 (123) 456-7890",
-      href: "tel:+11234567890",
+      content: "+91 79083-64981",
+      href: "tel:+917908364981",
     },
     {
       icon: <MapPin className="w-6 h-6 text-primary" />,
       title: "Location",
-      content: "San Francisco, CA",
-      href: "https://maps.google.com/?q=San+Francisco,+CA",
+      content: "West Bengal, Siliguri",
+      href: "https://maps.google.com/?q=West+Bengal,+Siliguri",
     },
   ];
 
@@ -106,11 +106,11 @@ const Contact = () => {
         <p className="cosmic-text mb-10">
           Have a project in mind or want to collaborate? Feel free to reach out!
         </p>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-3 cosmic-card">
             <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
-            
+
             <form ref={formRef} onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-6">
                 <div>
@@ -167,7 +167,7 @@ const Contact = () => {
               </div>
             </form>
           </div>
-          
+
           <div className="lg:col-span-2 space-y-6">
             {contactInfo.map((info, index) => (
               <a
@@ -184,21 +184,39 @@ const Contact = () => {
                 </div>
               </a>
             ))}
-            
+
             <div className="cosmic-card">
               <h3 className="text-xl font-bold text-white mb-4">Connect With Me</h3>
               <p className="text-muted-foreground mb-4">
                 Follow me on social media to stay updated with my latest projects and tech insights.
               </p>
               <div className="flex space-x-4">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="cosmic-btn w-10 h-10 p-0 flex items-center justify-center rounded-full">
+                <a
+                  href="https://instagram.com/abhishekbardhan"
+                  title="Instagram Profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cosmic-btn w-10 h-10 p-0 flex items-center justify-center rounded-full"
+                >
+                  <FaInstagram size={20} />
+                </a>
+                <a
+                  href="https://twitter.com/abhishekbardhan"
+                  title="Twitter Profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cosmic-btn w-10 h-10 p-0 flex items-center justify-center rounded-full"
+                >
+                  <FaTwitter size={20} />
+                </a>
+                <a
+                  href="https://github.com/abhishekbardhan"
+                  title="GitHub Profile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cosmic-btn w-10 h-10 p-0 flex items-center justify-center rounded-full"
+                >
                   <Github className="w-5 h-5" />
-                </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="cosmic-btn w-10 h-10 p-0 flex items-center justify-center rounded-full">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href="mailto:your.email@example.com" className="cosmic-btn w-10 h-10 p-0 flex items-center justify-center rounded-full">
-                  <Mail className="w-5 h-5" />
                 </a>
               </div>
             </div>
