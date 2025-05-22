@@ -90,14 +90,19 @@
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-cosmic-dark text-foreground;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -111,6 +116,11 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: #00cea8;
+  }
+
+  /* Hide default cursor when using custom cursor */
+  .cursor-none * {
+    cursor: none !important;
   }
 }
 
@@ -127,7 +137,15 @@
     @apply py-3 px-8 bg-cosmic-purple/80 text-white font-bold 
     rounded-xl outline-none w-fit flex items-center gap-2
     hover:bg-cosmic-purple hover:shadow-cosmic-purple/50 hover:shadow-lg
-    transition-all duration-300;
+    transition-all duration-300 relative overflow-hidden group;
+  }
+
+  .cosmic-btn::after {
+    @apply content-[''] absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] transition-all duration-700 ease-out;
+  }
+
+  .cosmic-btn:hover::after {
+    @apply left-[100%];
   }
 
   .cosmic-card {
@@ -149,6 +167,31 @@
 
   .glass-nav {
     @apply backdrop-blur-md bg-cosmic-dark/60 border-b border-cosmic-purple/20;
+  }
+
+  /* Scroll reveal animation classes */
+  .reveal {
+    @apply opacity-0 transition-all duration-1000;
+  }
+
+  .reveal-left {
+    @apply -translate-x-20;
+  }
+
+  .reveal-right {
+    @apply translate-x-20;
+  }
+
+  .reveal-up {
+    @apply translate-y-20;
+  }
+
+  .reveal-down {
+    @apply -translate-y-20;
+  }
+
+  .reveal-visible {
+    @apply opacity-100 translate-x-0 translate-y-0;
   }
 }
 
@@ -196,4 +239,18 @@
 .section-fade.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Enhanced scroll animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px 2px rgba(145, 94, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(145, 94, 255, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s infinite;
 }

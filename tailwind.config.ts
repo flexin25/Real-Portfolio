@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -106,6 +107,14 @@ export default {
 				'twinkle': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.2' }
+				},
+				'transition-fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'transition-fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
 				}
 			},
 			animation: {
@@ -115,11 +124,15 @@ export default {
 				'fade-out': 'fade-out 0.7s ease-out',
 				'float': 'float 6s ease-in-out infinite',
 				'spin-slow': 'spin-slow 8s linear infinite',
-				'twinkle': 'twinkle 3s ease-in-out infinite'
+				'twinkle': 'twinkle 3s ease-in-out infinite',
+				'transition-fade': 'transition-fade-in 0.6s ease-out forwards, transition-fade-out 0.6s ease-in 0.8s forwards'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/src/assets/herobg.png')",
 				'gradient-cosmic': 'linear-gradient(180deg, rgba(5, 8, 22, 0) 0%, #050816 95%)'
+			},
+			cursor: {
+				'none': 'none'
 			}
 		}
 	},

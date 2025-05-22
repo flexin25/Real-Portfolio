@@ -6,6 +6,8 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import BackgroundEffects from "@/components/BackgroundEffects";
 import { animateOnScroll } from "@/helpers/animateOnScroll";
 
 const Index = () => {
@@ -24,6 +26,8 @@ const Index = () => {
 
   return (
     <div className="relative bg-cosmic-dark text-white overflow-x-hidden">
+      <CustomCursor />
+      <BackgroundEffects />
       <Navbar />
       <Hero />
       <About />
